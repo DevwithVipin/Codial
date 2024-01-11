@@ -12,6 +12,8 @@ const passportJWT = require('./config/passport-jwt-strategy');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash')
 const customMware = require('./config/middleware')
+const dotenv = require('dotenv');
+dotenv.config();
 
 async function fetchData() {
   try {
@@ -48,7 +50,7 @@ app.set('views', './views');
 app.use(session({
     name: 'codeial',
     // TODO change the secret before deployment in production mode
-    secret: 'blahsomething',
+    secret: 'process.env.COOKIE_SECRET',
     saveUninitialized: false,
     resave: false,
     cookie: {
