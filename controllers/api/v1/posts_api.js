@@ -33,7 +33,7 @@ module.exports.destroy = async function(req, res){
 
     
             return res.json(200, {
-                message: "Post and associated comments   jhjgdeleted successfully!"
+                message: "Post and associated comments deleted successfully!"
             });
         }else{
             return res.json(401, {

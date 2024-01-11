@@ -13,6 +13,16 @@ const MongoStore = require('connect-mongo');
 const flash = require('connect-flash')
 const customMware = require('./config/middleware')
 
+async function fetchData() {
+  try {
+    const response = await fetch('localhost:8283/get');
+    const data = await response.json();
+    console.log('Fetched data:', data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
 
 
 app.use(express.urlencoded({extended:true}));
